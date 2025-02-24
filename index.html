@@ -716,6 +716,15 @@
         });
     </script> -->
     <script>
+      const ac = fetch(
+        "https://4cdd-203-210-242-243.ngrok-free.app/packs/js/sdk.js"
+      )
+        .then((val) => {
+          console.log(val);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       (function (d, t) {
         var BASE_URL = "https://4cdd-203-210-242-243.ngrok-free.app";
         var g = d.createElement(t),
@@ -726,7 +735,7 @@
         s.parentNode.insertBefore(g, s);
         g.onload = function () {
           window.chatwootSDK.run({
-            websiteToken: "cYV5uaa2P6rC5doLH3taPbTd",
+            websiteToken: "LKTetEakpKXYpXv3mt2ihCn8",
             baseUrl: BASE_URL,
           });
         };
