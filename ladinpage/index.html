@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Da Nang Luxe Homes - Premier Apartment Finder for Expats</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        color: #2b2b2b;
+        line-height: 1.8;
+        background: #fff;
+        scroll-behavior: smooth;
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3 {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #1a3c5e 0%, #2b567c 100%);
+        padding: 25px 0;
+        z-index: 1000;
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+      }
+
+      .logo {
+        color: #fff;
+        font-size: 2.4rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin-left: 50px;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #d4af37; /* Vàng ánh kim */
+      }
+
+      .hamburger {
+        display: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")
+          center/cover no-repeat;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(26, 60, 94, 0.8),
+          rgba(0, 0, 0, 0.6)
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        color: #fff;
+        max-width: 900px;
+      }
+
+      .hero h1 {
+        font-size: 5.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-bottom: 50px;
+        color: #d4af37;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        padding: 18px 60px;
+        background: #d4af37;
+        color: #1a3c5e;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 700;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: all 0.3s ease;
+      }
+
+      .cta-btn:hover {
+        background: #fff;
+        color: #1a3c5e;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 140px 0;
+        background: #f8f6f3;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .services h2,
+      .properties h2,
+      .process h2,
+      .contact h2 {
+        font-size: 3.8rem;
+        text-align: center;
+        margin-bottom: 80px;
+        color: #1a3c5e;
+        font-weight: 700;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+      }
+
+      .service-item {
+        text-align: center;
+        padding: 50px 30px;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .service-item:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-item i {
+        font-size: 3.5rem;
+        color: #1a3c5e;
+        margin-bottom: 25px;
+      }
+
+      .service-item h3 {
+        font-size: 1.9rem;
+        margin-bottom: 15px;
+        color: #1a3c5e;
+      }
+
+      .service-item p {
+        font-size: 1.1rem;
+        color: #666;
+        font-weight: 300;
+      }
+
+      /* Properties Section */
+      .properties {
+        padding: 140px 0;
+        background: #fff;
+      }
+
+      .carousel {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .carousel-slide {
+        display: none;
+        position: relative;
+      }
+
+      .carousel-slide.active {
+        display: block;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .carousel-caption {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 35px;
+        border-radius: 15px;
+        max-width: 450px;
+      }
+
+      .carousel-caption h3 {
+        font-size: 2.2rem;
+        color: #1a3c5e;
+        margin-bottom: 15px;
+      }
+
+      .carousel-caption p {
+        font-size: 1.3rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .property-btn {
+        display: inline-block;
+        padding: 12px 35px;
+        background: #1a3c5e;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        margin-top: 20px;
+        font-weight: 700;
+        transition: background 0.3s ease;
+      }
+
+      .property-btn:hover {
+        background: #d4af37;
+        color: #1a3c5e;
+      }
+
+      .carousel-nav {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .carousel-dot {
+        width: 14px;
+        height: 14px;
+        background: #ccc;
+        border: none;
+        border-radius: 50%;
+        margin: 0 12px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .carousel-dot.active {
+        background: #1a3c5e;
+      }
+
+      /* Process Section */
+      .process {
+        padding: 140px 0;
+        background: #f8f6f3;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .step {
+        text-align: center;
+        position: relative;
+      }
+
+      .step-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: #1a3c5e;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 50px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+
+      .step h3 {
+        font-size: 1.8rem;
+        color: #1a3c5e;
+        margin-bottom: 15px;
+      }
+
+      .step p {
+        font-size: 1.1rem;
+        color: #666;
+        font-weight: 300;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 140px 0;
+        background: linear-gradient(135deg, #1a3c5e 0%, #2b567c 100%);
+        color: #fff;
+      }
+
+      .contact-form {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 60px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .form-row input,
+      .form-row select {
+        flex: 1;
+      }
+
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 300;
+      }
+
+      .contact-form textarea {
+        height: 160px;
+        resize: none;
+      }
+
+      .contact-form button {
+        width: 100%;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 60px 0;
+        background: #1a3c5e;
+        color: #fff;
+        text-align: center;
+      }
+
+      .social-links a {
+        color: #d4af37;
+        margin: 0 25px;
+        font-size: 2rem;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #fff;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 3.5rem;
+        }
+        .hero p {
+          font-size: 1.3rem;
+        }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: #1a3c5e;
+          flex-direction: column;
+          padding: 30px 0;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .nav-links li {
+          margin: 20px 0;
+        }
+        .hamburger {
+          display: block;
+        }
+        .form-row {
+          flex-direction: column;
+        }
+        .carousel-slide img {
+          height: 450px;
+        }
+        .services h2,
+        .properties h2,
+        .process h2,
+        .contact h2 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">Da Nang Luxe Homes tesst</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Your Premier Apartment Finder in Da Nang</h1>
+        <p>Personalized, hassle-free home solutions for expatriates</p>
+        <a href="#contact" class="cta-btn">Start Your Search</a>
+      </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2>Comprehensive Services for Your Perfect Stay</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <i class="fas fa-search"></i>
+            <h3>Custom Property Matching</h3>
+            <p>
+              We analyze your needs (budget, location, amenities) to find the
+              ideal apartment or room tailored to your lifestyle.
+            </p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-language"></i>
+            <h3>Multilingual Support</h3>
+            <p>
+              Our team speaks English, Vietnamese, and more to assist you
+              seamlessly, breaking down language barriers.
+            </p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-file-contract"></i>
+            <h3>Legal & Contract Assistance</h3>
+            <p>
+              We guide you through rental agreements, ensuring transparency and
+              compliance with local regulations.
+            </p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-car"></i>
+            <h3>Property Tours</h3>
+            <p>
+              Complimentary guided tours to shortlisted properties, including
+              transportation within Da Nang.
+            </p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-home"></i>
+            <h3>Move-In Support</h3>
+            <p>
+              From furniture setup to utility connections, we ensure a smooth
+              transition into your new home.
+            </p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Customer Care</h3>
+            <p>
+              Round-the-clock assistance for any queries or urgent needs during
+              your search and stay.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties" id="properties">
+      <div class="container">
+        <h2>Discover Premium Da Nang Residences</h2>
+        <div class="carousel">
+          <div class="carousel-slide active">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+              alt="Oceanfront Suite"
+            />
+            <div class="carousel-caption">
+              <h3>Oceanfront Suite</h3>
+              <p>1 Bedroom, 60m², $800/month<br />Ocean views, gym, pool</p>
+              <a href="#" class="property-btn">Explore</a>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+              alt="Downtown Penthouse"
+            />
+            <div class="carousel-caption">
+              <h3>Downtown Penthouse</h3>
+              <p>
+                2 Bedrooms, 120m², $1500/month<br />Rooftop terrace, city access
+              </p>
+              <a href="#" class="property-btn">Explore</a>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+              alt="Beachside Studio"
+            />
+            <div class="carousel-caption">
+              <h3>Beachside Studio</h3>
+              <p>Studio, 40m², $550/month<br />Steps to My Khe Beach</p>
+              <a href="#" class="property-btn">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-dot active" data-slide="0"></button>
+          <button class="carousel-dot" data-slide="1"></button>
+          <button class="carousel-dot" data-slide="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+      <div class="container">
+        <h2>How We Help You Find Your Home</h2>
+        <div class="process-steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>Consultation</h3>
+            <p>
+              Tell us your preferences via form or a quick call with our
+              experts.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Property Shortlist</h3>
+            <p>
+              We curate a list of homes matching your criteria within 24 hours.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>Guided Tours</h3>
+            <p>Visit your top picks with our team, in-person or virtually.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <h3>Move-In Ready</h3>
+            <p>Sign the contract and settle in with our full support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Begin Your Journey Today</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email Address" required />
+          </div>
+          <div class="form-row">
+            <select required>
+              <option value="">Preferred Property Type</option>
+              <option value="studio">Studio</option>
+              <option value="1bed">1 Bedroom</option>
+              <option value="2bed">2 Bedrooms</option>
+              <option value="penthouse">Penthouse</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Budget (e.g., $500-$1000)"
+              required
+            />
+          </div>
+          <textarea
+            placeholder="Tell us your requirements (location, amenities, lease term, etc.)"
+            required
+          ></textarea>
+          <button type="submit" class="cta-btn">Submit Your Request</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          © 2025 Da Nang Luxe Homes | Premier Apartment Solutions for Expats
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- <script>
+      // Hamburger Menu Toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Carousel Functionality
+      const slides = document.querySelectorAll(".carousel-slide");
+      const dots = document.querySelectorAll(".carousel-dot");
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        dots.forEach((dot) => dot.classList.remove("active"));
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentSlide = index;
+          showSlide(currentSlide);
+        });
+      });
+
+      // Auto Slide
+      setInterval(() => {
+        currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+        showSlide(currentSlide);
+      }, 6000);
+
+      // Form Submission
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert(
+            "Thank you for your request! Our team will reach out within 24 hours."
+          );
+        });
+    </script> -->
+    <script>
+      (function (d, t) {
+        var BASE_URL = "http://0.0.0.0:3000";
+        var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+          window.chatwootSDK.run({
+            websiteToken: "rYZyUx4Voa88JEMGycBjo889",
+            baseUrl: BASE_URL,
+          });
+        };
+      })(document, "script");
+    </script>
+  </body>
+</html>
