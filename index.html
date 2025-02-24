@@ -715,32 +715,7 @@
           );
         });
     </script> -->
-    <script>
-      const ac = fetch(
-        "https://4cdd-203-210-242-243.ngrok-free.app/packs/js/sdk.js"
-      )
-        .then((val) => {
-          console.log(val);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      (function (d, t) {
-        var BASE_URL = "https://4cdd-203-210-242-243.ngrok-free.app";
-        var g = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-        g.src = BASE_URL + "/packs/js/sdk.js";
-        g.defer = true;
-        g.async = true;
-        s.parentNode.insertBefore(g, s);
-        g.onload = function () {
-          window.chatwootSDK.run({
-            websiteToken: "LKTetEakpKXYpXv3mt2ihCn8",
-            baseUrl: BASE_URL,
-          });
-        };
-      })(document, "script");
-    </script>
+    v
 
     <!-- <script>
       window.chatwootSettings = {
@@ -764,5 +739,28 @@
         };
       })(document, "script");
     </script> -->
+
+    <script>
+      window.chatwootSettings = {
+        position: "right",
+        type: "standard",
+        launcherTitle: "Chat with us",
+      };
+      (function (d, t) {
+        var BASE_URL = "http://0.0.0.0:3000";
+        var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+          window.chatwootSDK.run({
+            websiteToken: "nMose87tqqDCb9NSXWAxNnC7",
+            baseUrl: BASE_URL,
+          });
+        };
+      })(document, "script");
+    </script>
   </body>
 </html>
